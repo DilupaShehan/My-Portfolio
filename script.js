@@ -104,26 +104,28 @@ setupModal('captain-2026', 'modal-captain-2026');
 
 // Theme Toggle Logic
 const themeBtn = document.getElementById('theme-toggle');
-const themeIcon = themeBtn.querySelector('.icon');
-const body = document.body;
+if (themeBtn) {
+    const themeIcon = themeBtn.querySelector('.icon');
+    const body = document.body;
+    console.log("Theme toggle initialized");
 
-// Check LocalStorage
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme === 'light') {
-    body.classList.add('light-mode');
-    themeIcon.textContent = '🌙';
-}
+    // Check LocalStorage
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme === 'light') {
+        body.classList.add('light-mode');
+        themeIcon.textContent = '🌙';
+    }
 
-themeBtn.addEventListener('click', () => {
-    body.classList.toggle('light-mode');
-    const isLight = body.classList.contains('light-mode');
+    themeBtn.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        const isLight = body.classList.contains('light-mode');
 
-    // Update Icon
-    themeIcon.textContent = isLight ? '🌙' : '☀️';
+        // Update Icon
+        themeIcon.textContent = isLight ? '🌙' : '☀️';
 
-    // Save Preference
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
-});
+        // Save Preference
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
 
 
 
