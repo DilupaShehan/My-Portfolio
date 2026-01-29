@@ -102,3 +102,28 @@ setupModal('jpura-colors', 'modal-jpura-colors');
 setupModal('captain-2026', 'modal-captain-2026');
 
 
+// Theme Toggle Logic
+const themeBtn = document.getElementById('theme-toggle');
+const themeIcon = themeBtn.querySelector('.icon');
+const body = document.body;
+
+// Check LocalStorage
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme === 'light') {
+    body.classList.add('light-mode');
+    themeIcon.textContent = '🌙';
+}
+
+themeBtn.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    const isLight = body.classList.contains('light-mode');
+
+    // Update Icon
+    themeIcon.textContent = isLight ? '🌙' : '☀️';
+
+    // Save Preference
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+});
+
+
+
