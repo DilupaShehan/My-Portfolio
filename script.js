@@ -126,6 +126,9 @@ if (themeBtn) {
         // Save Preference
         localStorage.setItem('theme', isLight ? 'light' : 'dark');
     });
+} else {
+    console.error("Theme toggle button not found!");
+}
 
 
 
